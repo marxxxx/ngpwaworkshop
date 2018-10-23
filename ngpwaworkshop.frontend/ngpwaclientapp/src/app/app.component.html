@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <span>Dataformers PWA Demo</span>
+</mat-toolbar>
+
+
+<!-- Message input-->
+<mat-card>
+  <form #myForm="ngForm">
+    <div>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Bitte Namen eingeben" [(ngModel)]="name" name="userName" required
+            minlength="3">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Bitte Nachricht eingeben" [(ngModel)]="message" name="message"
+            required minlength="3">
+        </mat-form-field>
+      </p>
+    </div>
+
+    <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="onClick()">Prost</button>
+  </form>
+</mat-card>
+
+<!-- Message List-->
+<div>
+
+  <mat-card *ngFor="let m of messages">{{m}}</mat-card>
+
+</div>
