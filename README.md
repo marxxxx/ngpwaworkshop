@@ -5,3 +5,4 @@ Progressive Web Apps with Angular / Workshop Demo
 1. Clone Repository
 2. Go to folder \ngpwaworkshop.backend and run command "dotnet run"
 3. Go to folder \ngpwaworkshop.frontend\ngpwaclientapp and run commands "npm install" and "npm start"
+4. Browse to http://localhost:4200
