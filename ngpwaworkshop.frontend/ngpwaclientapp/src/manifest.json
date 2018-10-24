@@ -1,10 +1,10 @@
 {
-  "name": "ngpwaclientapp",
-  "short_name": "ngpwaclientapp",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "DataChat2",
+  "short_name": "DataChat2",
+  "theme_color": "#2196f3",
+  "background_color": "#122b3e",
   "display": "standalone",
-  "scope": "/",
+  "Scope": "/",
   "start_url": "/",
   "icons": [
     {
@@ -47,5 +47,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "splash_pages": null
 }

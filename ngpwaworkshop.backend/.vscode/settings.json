@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0b40fda2-1727-412d-b92a-e7302d5c09a4/resourceGroups/pwademo2/providers/Microsoft.Web/sites/pwademo2",
+    "appService.deploySubpath": ""
+}
