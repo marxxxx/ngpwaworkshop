@@ -6,8 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatProgressSpinnerModule } from '@angular/material';
-import { MatListModule, MatInputModule, MatCardModule, MatSnackBarModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatInputModule, MatCardModule, MatSnackBarModule } from '@angular/material';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatListModule, MatInputModule, MatCardModule, MatSnackBarModule } from 
     MatInputModule,
     MatCardModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

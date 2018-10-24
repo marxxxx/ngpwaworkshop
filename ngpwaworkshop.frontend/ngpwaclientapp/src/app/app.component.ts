@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
+import { SwUpdate, SwPush } from '@angular/service-worker';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +14,17 @@ export class AppComponent implements OnInit {
   isBusySending = false;
   messages: string[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+    private swUpdate: SwUpdate, private swPush: SwPush,
+    private snackbar: MatSnackBar) { }
 
   ngOnInit() {
+    this.swUpdate.available.subscribe(e => {
+      this.snackbar.open('Update verfügbar.', 'OK')
+        .onAction().subscribe(r => {
+          location.reload(true);
+        });
+    });
 
     this.load();
   }
