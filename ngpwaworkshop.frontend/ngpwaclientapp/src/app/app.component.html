@@ -21,7 +21,8 @@
       </p>
     </div>
 
-    <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="onClick()">Prost</button>
+    <button *ngIf="!isBusySending" mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="onClick()">Prost</button>
+    <mat-progress-spinner *ngIf="isBusySending" mode="indeterminate" diameter="48"></mat-progress-spinner>
   </form>
 </mat-card>
 

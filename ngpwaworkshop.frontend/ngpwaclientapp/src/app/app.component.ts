@@ -9,7 +9,7 @@ import { DataService } from './services/data.service';
 export class AppComponent implements OnInit {
   name: string;
   message: string;
-
+  isBusySending = false;
   messages: string[] = [];
 
   constructor(private dataService: DataService) { }
@@ -26,8 +26,12 @@ export class AppComponent implements OnInit {
   }
 
   onClick() {
+    this.isBusySending = true;
     this.dataService.sendMessage(this.name, this.message).subscribe(r => {
+      this.isBusySending = false;
       this.load();
+    }, e => {
+      this.isBusySending = false;
     });
   }
 }

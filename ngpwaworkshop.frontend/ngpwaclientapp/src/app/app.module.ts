@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatProgressSpinnerModule } from '@angular/material';
 import { MatListModule, MatInputModule, MatCardModule, MatSnackBarModule } from '@angular/material';
 
 @NgModule({
@@ -20,12 +20,11 @@ import { MatListModule, MatInputModule, MatCardModule, MatSnackBarModule } from 
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
     MatIconModule,
-    MatListModule,
     MatInputModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
