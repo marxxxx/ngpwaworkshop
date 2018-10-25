@@ -11,10 +11,18 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
 
+  /**
+   * Downloads all messages.
+   */
   getMessages(): Observable<string[]> {
     return this.http.get<string[]>(environment.baseUrl);
   }
 
+  /**
+   * Sends a new message.
+   * @param name User Name
+   * @param message Message
+   */
   sendMessage(name: string, message: string): Observable<any> {
     const request = {name: name, message: message};
     return this.http.post(environment.baseUrl, request);
