@@ -29,6 +29,10 @@ export class DataService {
     return this.http.post(environment.baseUrl, request);
   }
 
+  /**
+   * Registers a client application at the server side to receive push notifications.
+   * @param pushInfo Push Information for this client
+   */
   registerPushInfo(pushInfo: PushInfoModel): Observable<any> {
     return this.http.post(environment.baseUrl + '/RegisterPushInfo', pushInfo);
   }
