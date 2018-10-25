@@ -35,6 +35,9 @@ export class AppComponent implements OnInit {
   // functions
   ////////////////////////////////////////////////////////////////////////
   ngOnInit() {
+
+    // subscripe to updates to the PWA and display a message to the user
+    // reload will install the update.
     this.swUpdate.available.subscribe(e => {
       this.snackbar.open('Update verfügbar.', 'OK')
         .onAction().subscribe(r => {
@@ -42,9 +45,13 @@ export class AppComponent implements OnInit {
         });
     });
 
+    // request push subscription (a set of information that uniquely identifies this client)
     this.swPush.requestSubscription({ serverPublicKey: this.VAPID_PUBLIC_KEY }).then(r => {
 
+      // parse subscription information
       const pushInfo = this.getPushInfo(r);
+
+      // transfer subscription information to server, so he can send messages to your client
       this.dataService.registerPushInfo(pushInfo).subscribe(_ => {
         console.log('successfully registered push info');
       }, e => console.log(e));
@@ -56,17 +63,22 @@ export class AppComponent implements OnInit {
       console.error(e);
     });
 
+    // subscribe for messages and display them in a snackbar
     this.swPush.messages.subscribe((m: any) => {
       if (m.notification && m.notification.body) {
         this.snackbar.open(m.notification.body, 'OK');
       }
     });
 
-
-
+    // initially load messages from server
     this.load();
   }
 
+  /**
+   * Extracts the required information from a push subscription the server
+   * needs to send notifications to this client.
+   * @param sub push subscription
+   */
   getPushInfo(sub: PushSubscription): PushInfoModel {
 
     const subJSObject = JSON.parse(JSON.stringify(sub));
