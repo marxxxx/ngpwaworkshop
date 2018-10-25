@@ -20,7 +20,6 @@ namespace ngpwaworkshop.backend.Controllers
         private static List<PushInfoModel> pushInfoList = new List<PushInfoModel>();
 
 
-        // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -28,7 +27,6 @@ namespace ngpwaworkshop.backend.Controllers
         }
 
 
-        // POST api/values
         [HttpPost]
         public void Post([FromBody]MessageModel message)
         {

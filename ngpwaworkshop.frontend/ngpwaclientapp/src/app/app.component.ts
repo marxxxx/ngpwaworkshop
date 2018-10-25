@@ -4,22 +4,36 @@ import { SwUpdate, SwPush } from '@angular/service-worker';
 import { MatSnackBar } from '@angular/material';
 import { PushInfoModel } from './models/PushInfoModel';
 
+/**
+ * App Component and the only page in this Single Page Application.
+ * The most single page application possible.
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  ////////////////////////////////////////////////////////////////////////
+  // members
+  ////////////////////////////////////////////////////////////////////////
   name: string;
   message: string;
   isBusySending = false;
   messages: string[] = [];
   private readonly VAPID_PUBLIC_KEY = 'BFVQxQ0d8PIczVLjSBFWxIZc0UMNnYHK7fC3tUmja2VwlLOAAKQl_pBtuv6_bfJpOAqMdC8_Pdm43Sf7SOIWYFU';
 
+  ////////////////////////////////////////////////////////////////////////
+  // construction
+  ////////////////////////////////////////////////////////////////////////
   constructor(private dataService: DataService,
     private swUpdate: SwUpdate, private swPush: SwPush,
     private snackbar: MatSnackBar) { }
 
+  ////////////////////////////////////////////////////////////////////////
+  // functions
+  ////////////////////////////////////////////////////////////////////////
   ngOnInit() {
     this.swUpdate.available.subscribe(e => {
       this.snackbar.open('Update verfügbar.', 'OK')
@@ -72,7 +86,7 @@ export class AppComponent implements OnInit {
   load() {
     this.dataService.getMessages().subscribe(m => {
       this.messages = m;
-    });
+    }, e => console.error(e));
   }
 
   onClick() {

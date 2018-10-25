@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://pwademo2.azurewebsites.net/api/Message'
+  baseUrl: 'http://localhost:5000/api/Message'
 };
