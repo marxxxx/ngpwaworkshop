@@ -43,7 +43,6 @@ namespace ngpwaworkshop.backend
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
